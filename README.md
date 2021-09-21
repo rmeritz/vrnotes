@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
 
 * Deployment instructions
 
-* ...
+This app is deployed via Heroku on the free tier.
+
+[Install the Heroku
+CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
+
+Add the git remote for Heroku with:
+
+```
+heroku git:remote -a radiant-river-88924
+```
+
+Deploy by running:
+
+```
+git push heroku main
+```
