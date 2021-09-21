@@ -1,15 +1,17 @@
 # README
 
-## Ruby version
+## Local Development
 
-Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
+1. Install ruby. Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
 
-## Configuration
+2. Clone the repo and cd to the root.
 
-The applicaiton is using [Encrypted
-Credentials](https://guides.rubyonrails.org/security.html#custom-credentials).
+3. Get a copy of the `master.key` from another developer and place it at `config/master.key`.
+The applicaiton is using [Encrypted Credentials](https://guides.rubyonrails.org/security.html#custom-credentials) to store the AWS keys need to connect to dynamo db.
 
-In order to run this application you need get a local copy of `config/master.key`.
+4. Install all of the needed libraries by running `bundle install`.
+
+5. Start the server by running `rails server`.
 
 ## Deployment instructions
 
