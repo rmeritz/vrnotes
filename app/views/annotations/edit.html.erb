@@ -1,0 +1,10 @@
+<h1>Edit Annotation <%= @annotation.coordinate %></h1>
+
+<%= form_with model: @annotation do |form| %>
+  <%= form.text_field :Annotation %>
+  <%= form.submit %>
+<% end %>
+
+<%= form_with model: @annotation, method: :delete do |form| %>
+  <%= form.submit "Delete" %>
+<% end %>
