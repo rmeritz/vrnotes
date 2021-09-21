@@ -1,10 +1,10 @@
 # README
 
-* Ruby version
+## Ruby version
 
 Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
 
-* Deployment instructions
+## Deployment instructions
 
 This app is deployed via Heroku on the free tier.
 
