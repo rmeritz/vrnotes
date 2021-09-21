@@ -1,0 +1,14 @@
+<h1>Annotations</h1>
+
+<table>
+  <tr>
+    <th>Coordinate</th>
+    <th>Annotation</th>
+    </tr>
+    <% @annotations.each do |annotation| %>
+      <tr>
+        <td><%= annotation.coordinate %></td>
+        <td><%= annotation.Annotation %></td>
+      </tr>
+  <% end %>
+</table>
