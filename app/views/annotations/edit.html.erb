@@ -1,10 +1,14 @@
 <h1>Edit Annotation <%= @annotation.coordinate %></h1>
 
 <%= form_with model: @annotation do |form| %>
-  <%= form.text_field :Annotation %>
-  <%= form.submit %>
+    <div class="mb-3">
+      <%= form.text_field :Annotation, { class: "form-control", rows: 3 } %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Edit", { class: "btn btn-primary" } %>
+    </div>
 <% end %>
 
 <%= form_with model: @annotation, method: :delete do |form| %>
-  <%= form.submit "Delete" %>
+  <%= form.submit "Delete", class: "btn btn-danger"  %>
 <% end %>

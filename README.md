@@ -4,6 +4,8 @@
 
 1. Install ruby. Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
 
+2. Install yarn.
+
 2. Clone the repo and cd to the root.
 
 3. Get a copy of the `master.key` from another developer and place it at `config/master.key`.
@@ -11,7 +13,9 @@ The applicaiton is using [Encrypted Credentials](https://guides.rubyonrails.org/
 
 4. Install all of the needed libraries by running `bundle install`.
 
-5. Start the server by running `rails server`.
+5. Run `yarn` to install frontend dependencies.
+
+6. Start the server by running `rails server`.
 
 ## Deployment instructions
 
