@@ -2,6 +2,7 @@
   "name": "vrnotes",
   "private": true,
   "dependencies": {
+    "@google/model-viewer": "^1.8.0",
     "@popperjs/core": "^2.10.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",

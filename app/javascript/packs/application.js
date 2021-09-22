@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import "channels"
 
 import "../src/bootstrap_js_files.js"
+import "@google/model-viewer/dist/model-viewer.js"
 
 Rails.start()
 Turbolinks.start()
