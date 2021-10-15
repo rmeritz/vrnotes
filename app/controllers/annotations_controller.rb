@@ -4,7 +4,7 @@ class AnnotationsController < ApplicationController
 
   def index
     redirect_to new_session_path, alert: "User could not be found" unless @user.valid?
-    @annotations = @user.annotations
+    @annotated_objects = @user.annotated_objects
   end
 
   #def edit

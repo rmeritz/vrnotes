@@ -1,12 +1,12 @@
 class User
   include ActiveModel::Model
 
-  attr_accessor :username, :annotations
-  validates :username, :annotations, presence: true
+  attr_accessor :username, :annotated_objects
+  validates :username, :annotated_objects, presence: true
 
   def initialize(params = {})
     super(params)
-    set_annotations
+    set_annotated_objects
   end
 
   def to_param
@@ -15,8 +15,8 @@ class User
 
   private
 
-  def set_annotations
-    @annotations = Annotation.query(
+  def set_annotated_objects
+    @annotated_objects = AnnotatedObject.query(
       key_condition_expression: "username = :username",
       expression_attribute_values: {':username': username},
     )

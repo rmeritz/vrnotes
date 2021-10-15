@@ -1,4 +1,4 @@
-class Annotation
+class AnnotatedObject
   include ActiveModel::Model
   include Aws::Record
   set_table_name "annotations"

@@ -1,5 +1,11 @@
 # README
 
+## TODO
+- Share link button
+- Add back edit annotation functionality
+- Add back delete annotation functionality
+- Share via email
+
 ## Local Development
 
 1. Install ruby. Use ruby version `3.0.2`. We recommend using [rbenv](https://github.com/rbenv/rbenv) to manage your ruby versions.
