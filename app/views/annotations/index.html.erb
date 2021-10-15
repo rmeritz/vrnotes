@@ -6,8 +6,8 @@
     <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
 
       <% annotated_object.annotations.each.with_index do |annotation, i| %>
-        <button class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation["coordinates"] %>" data-visibility-attribute="visible">
-          <div class="annotation"><%= annotation["annotation"] %></div>
+        <button class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates %>" data-visibility-attribute="visible">
+          <div class="annotation"><%= annotation.annotation %></div>
         </button>
       <% end %>
 
