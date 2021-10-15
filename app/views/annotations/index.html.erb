@@ -1,16 +1,12 @@
 <h1>Annotations</h1>
 
 <table class="table table-striped table-hover">
-  <tr>
-    <th>Coordinate</th>
-    <th>Annotation</th>
-    <th></th>
-  </tr>
-  <% @annotations.each do |annotation| %>
+  <% @annotations.each do |annotated_object| %>
     <tr>
-      <td><%= annotation.coordinate %></td>
-      <td><%= annotation.Annotation %></td>
-      <td><%= link_to "Edit", edit_annotation_path(annotation) %></td>
+      <td><%= annotated_object.username %></td>
+      <td><%= annotated_object.guid %></td>
+      <td><%= annotated_object.url %></td>
+      <td><%= annotated_object.annotations %></td>
     </tr>
   <% end %>
 </table>

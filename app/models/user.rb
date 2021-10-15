@@ -9,11 +9,16 @@ class User
     set_annotations
   end
 
-  def set_annotations
-    @annotations = ["help"]
-  end
-
   def to_param
     username
+  end
+
+  private
+
+  def set_annotations
+    @annotations = Annotation.query(
+      key_condition_expression: "username = :username",
+      expression_attribute_values: {':username': username},
+    )
   end
 end
