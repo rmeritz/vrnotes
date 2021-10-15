@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     if @user.valid?
-      redirect_to user_annotations_path(@user)
+      redirect_to user_annotated_objects_path(@user)
     else
       redirect_to new_session_path, alert: "Could not log you in. Please try again."
     end

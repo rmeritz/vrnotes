@@ -10,6 +10,10 @@ class AnnotatedObject
     @queried_url ||= find_url
   end
 
+  def to_param
+    guid
+  end
+
   private
 
   def find_url

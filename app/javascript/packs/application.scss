@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/darkly/bootswatch";
 
-button.hotspot {
+.hotspot {
   display: block;
   width: 20px;
   height: 20px;
@@ -12,7 +12,7 @@ button.hotspot {
   box-sizing: border-box;
 }
 
-button.hotspot:not([data-visible]) {
+.hotspot:not([data-visible]) {
   background-color: transparent;
   border: 3px solid blue;
 }
@@ -23,6 +23,7 @@ button.hotspot:not([data-visible]) {
   transform: translate(10px, 10px);
   border-radius: 10px;
   padding: 10px;
+  width: 400px;
 }
 
 /* This keeps child nodes hidden while the element loads */
