@@ -1,12 +1,17 @@
-<h1>Annotations</h1>
+<h1>My Annotations</h1>
 
-<table class="table table-striped table-hover">
+<div class="row">
+
   <% @annotations.each do |annotated_object| %>
-    <tr>
-      <td><%= annotated_object.username %></td>
-      <td><%= annotated_object.guid %></td>
-      <td><%= annotated_object.url %></td>
-      <td><%= annotated_object.annotations %></td>
-    </tr>
+    <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
+
+      <% annotated_object.annotations.each.with_index do |annotation, i| %>
+        <button class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation["coordinates"] %>" data-visibility-attribute="visible">
+          <div class="annotation"><%= annotation["annotation"] %></div>
+        </button>
+      <% end %>
+
+    </model-viewer>
   <% end %>
-</table>
+
+</div>
