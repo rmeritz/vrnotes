@@ -1,4 +1,14 @@
-<h1>My Annotations</h1>
+<div class="row">
+  <div class="col-md-11">
+    <h1>My Annotations</h1>
+  </div>
+
+  <div class="col-md-1">
+    <button type="button" class="btn btn-primary pull-right" data-bs-toggle="modal" data-bs-target="#share-modal">
+      Share
+    </button>
+  </div>
+</div>
 
 <div class="row">
 
@@ -6,17 +16,41 @@
     <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
 
       <% annotated_object.annotations.each.with_index do |annotation, i| %>
-        <div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates %>" data-visibility-attribute="visible">
-          <div class="annotation">
-            <p>
-              <%= annotation.annotation %>
-            </p>
-            <%= link_to "Edit", edit_user_annotated_object_annotation_path(@user, annotated_object, i), class: "btn btn-primary" %>
-          </div>
-        </div>
+	<div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates %>" data-visibility-attribute="visible">
+	  <div class="annotation">
+	    <p>
+	    <%= annotation.annotation %>
+	    </p>
+	    <%= link_to "Edit", edit_user_annotated_object_annotation_path(@user, annotated_object, i), class: "btn btn-primary" %>
+	  </div>
+	</div>
       <% end %>
 
     </model-viewer>
   <% end %>
 
+</div>
+
+<div class="modal fade" id="share-modal" tabindex="-1" aria-labelledby="share-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+	<h5 class="modal-title" id="share-modal-label">Share</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<p>
+	Share your note with a friend to help them study. Just copy the following link to your clipboard and forward it on.
+	</p>
+
+	<p>
+	<mark><%= request.original_url %></mark>
+	</p>
+      </div>
+      <div class="modal-footer">
+	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	<button type="button" class="btn btn-primary" onclick="navigator.clipboard.writeText('<%= request.original_url %>');">Copy</button>
+      </div>
+    </div>
+  </div>
 </div>
