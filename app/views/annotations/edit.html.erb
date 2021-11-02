@@ -1,14 +1,24 @@
 <h1>Edit Annotation</h1>
 
-<%= form_with model: [@user, @annotated_object, @annotation] do |form| %>
-    <div class="mb-3">
-      <%= form.text_area :annotation, { class: "form-control", rows: 3 } %>
+<div class="row">
+  <% if @annotation.screenshot_url.present? %>
+    <div class="col-md-4">
+      <img src="<%= @annotation.screenshot_url %>" alt="Image of 3D model" class="img-fluid">
     </div>
-    <div class="mb-3">
-      <%= form.submit "Save", class: "btn btn-primary" %>
-    </div>
-<% end %>
+  <% end%>
 
-<%= form_with model: [@user, @annotated_object, @annotation], method: :delete do |form| %>
-  <%= form.submit "Delete", class: "btn btn-danger" %>
-<% end %>
+  <div class="col-md-8">
+    <%= form_with model: [@user, @annotated_object, @annotation] do |form| %>
+      <div class="mb-3">
+        <%= form.text_area :annotation, { class: "form-control", rows: 3 } %>
+      </div>
+      <div class="mb-3">
+        <%= form.submit "Save", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= form_with model: [@user, @annotated_object, @annotation], method: :delete do |form| %>
+      <%= form.submit "Delete", class: "btn btn-danger" %>
+    <% end %>
+  </div>
+</div>

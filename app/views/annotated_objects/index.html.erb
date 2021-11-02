@@ -11,24 +11,36 @@
 </div>
 
 <div class="row">
-
   <% @annotated_objects.each do |annotated_object| %>
-    <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
-
-      <% annotated_object.annotations.each.with_index do |annotation, i| %>
-	<div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates %>" data-visibility-attribute="visible">
-	  <div class="annotation">
-	    <p>
-	    <%= annotation.annotation %>
-	    </p>
-	    <%= link_to "Edit", edit_user_annotated_object_annotation_path(@user, annotated_object, i), class: "btn btn-primary" %>
-	  </div>
-	</div>
-      <% end %>
-
-    </model-viewer>
+    <div class="col-md-4">
+      <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
+        <% annotated_object.annotations.filter{ |a| a.annotation.present? && a.coordinates.present? }.each.with_index do |annotation, i| %>
+          <div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates.tr("(),", "") %>" data-visibility-attribute="visible">
+            <div class="annotation">
+              <p>
+                <%= i + 1 %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </model-viewer>
+    </div>
+    <div class="col-md-8">
+      <% annotated_object.annotations.filter{ |a| a.annotation.present? && a.coordinates.present? }.each.with_index do |annotation, i| %>
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= i + 1 %></h5>
+            <p class="card-text"><%= annotation.annotation %></p>
+            <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(annotation.updated_at || annotation.created_at) %></small></p>
+            <%= link_to "Edit", edit_user_annotated_object_annotation_path(@user, annotated_object, i), class: "btn btn-primary" %>
+          </div>
+          <% if annotation.screenshot_url.present? %>
+            <img src="<%= annotation.screenshot_url %>" class="card-img-bottom" alt="Image of 3D model">
+          <% end%>
+        </div>
+      <% end%>
+    </div>
   <% end %>
-
 </div>
 
 <div class="modal fade" id="share-modal" tabindex="-1" aria-labelledby="share-modal-label" aria-hidden="true">
