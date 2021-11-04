@@ -27,7 +27,7 @@
     </div>
     <div class="col-md-8">
       <% annotated_object.annotations.filter{ |a| a.annotation.present? && a.coordinates.present? }.each.with_index do |annotation, i| %>
-        <div class="card h-100">
+        <div class="card d-grid gap-3">
           <div class="card-body">
             <h5 class="card-title"><%= i + 1 %></h5>
             <p class="card-text"><%= annotation.annotation %></p>
