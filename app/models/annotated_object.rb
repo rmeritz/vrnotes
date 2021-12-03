@@ -4,6 +4,7 @@ class AnnotatedObject
   set_table_name "annotations"
   string_attr :username, hash_key: true
   string_attr :guid, range_key: true
+  string_attr :coordinate_offset, database_attribute_name: :modelworldposition
   attr :annotations, AnnotationMarshaller.new
 
   def url

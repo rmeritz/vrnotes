@@ -15,7 +15,7 @@
     <div class="col-md-4">
       <model-viewer loading="eager" ar ar-modes="webxr" camera-controls src="<%= annotated_object.url %>" style="height: 500px; --poster-color:#ffffff00;" alt="A 3D model">
         <% annotated_object.annotations.filter{ |a| a.annotation.present? && a.coordinates.present? }.each.with_index do |annotation, i| %>
-          <div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= annotation.coordinates.tr("(),", "") %>" data-visibility-attribute="visible">
+          <div class="hotspot" slot="hotspot-<%= i %>" data-position="<%= formatted_position(annotation, annotated_object) %>" data-visibility-attribute="visible">
             <div class="annotation">
               <p>
                 <%= i + 1 %>
